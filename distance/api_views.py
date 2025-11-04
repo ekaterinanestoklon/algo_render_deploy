@@ -13,7 +13,7 @@ class TextToList(APIView):
         # Not important to store in the database today
         payload = StatsSerializer(data=request.data)
         if payload.is_valid():
-            return Response({"response": text_to_list(payload.data.get("text", ""))})
+            return Response({"response": text_to_list(payload.data.get("text", ""))}, status=200)
         return Response({"message": payload.error_messages}, status=400)
 
 

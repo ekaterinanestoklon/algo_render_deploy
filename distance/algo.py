@@ -1,7 +1,7 @@
-# Find the algorithm stubs you need to complete the tasks
-
+import re
 
 def text_to_list(input_text):
+    
     """
     Args:
         input_text: string representation of text.
@@ -9,7 +9,11 @@ def text_to_list(input_text):
     Returns:
         list representation of input_text, where each word is a different element in the list
     """
-    pass
+    
+    if not input_text:
+        return []
+    tokens = re.findall(r"\w+|[^\s\w]", input_text.lower())
+    return tokens
 
 
 def get_letter_frequencies(word):
