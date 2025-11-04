@@ -25,7 +25,14 @@ def get_letter_frequencies(word):
         is a letter in word and the corresponding int
         is the frequency of the letter in word
     """
-    pass
+    if not word:
+        return {}
+    freqs = {}
+    for ch in word:
+        if ch.isspace():
+            continue
+        freqs[ch] = freqs.get(ch, 0) + 1
+    return freqs
 
 
 
@@ -41,7 +48,24 @@ def get_frequencies(input_iterable):
     Note:
         You can assume that the only kinds of white space in the text documents we provide will be new lines or space(s) between words (i.e. there are no tabs)
     """
-    pass
+
+    if not input_iterable:
+        return {}
+    
+    frequencies = {}
+    for item in input_iterable:
+        
+        if not item:
+            continue
+        
+        item = str(item)
+        
+        if item.strip() == "":
+            continue
+        
+        frequencies[item] = frequencies.get(item, 0) + 1
+    
+    return frequencies
 
 
 def calculate_similarity_score(freq_dict1, freq_dict2):
