@@ -50,11 +50,11 @@ The response should be:
 {"response": {"h": 1, "e": 1, "l": 2, "o": 1}}
 ```
 
+3. Get the similarity of two separate words (later expanded to separate documents).
+
 [Difficulty level: Hard]
 
 No API view and No URL has been created for this. This has been left as an exercise to the student.
-
-3. Get the similarity of two separate words (later expanded to separate documents).
 
 Topics to learn (or research):
 statistics => frequencies (number of times something appears in a collection)

@@ -92,4 +92,30 @@ def calculate_similarity_score(freq_dict1, freq_dict2):
          all frequencies in both dict1 and dict2.
         Return 1-(DIFF/ALL) rounded to 2 decimal places
     """
-    pass
+    if not freq_dict1 or not freq_dict2:
+        return 0.0
+
+    all_elements = set(freq_dict1.keys()) | set(freq_dict2.keys())
+    
+    diff = 0  # Sum of |count(e,L1) - count(e,L2)|
+    all = 0  # Sum of count(e,L1) + count(e,L2)
+    
+    for element in all_elements:
+        # Get counts (0 if element doesn't exist in dictionary)
+        count1 = freq_dict1.get(element, 0)
+        count2 = freq_dict2.get(element, 0)
+        
+        # Calculate δ(e) = |count(e,L1) - count(e,L2)|
+        delta = abs(count1 - count2)
+        
+        # Calculate σ(e) = count(e,L1) + count(e,L2)
+        sigma = count1 + count2
+        
+        diff += delta
+        all += sigma
+    
+    if all == 0:
+        return 0.0
+        
+    similarity = 1 - (diff / all)
+    return round(similarity, 2)
