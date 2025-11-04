@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: doc-distance-api
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn project.wsgi:application"
+    envVars:
+      - key: DEBUG
+        value: "0"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: HOST
+        value: ".onrender.com"
